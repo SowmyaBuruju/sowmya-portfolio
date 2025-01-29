@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 20;
+  --background-end-rgb: 10, 0, 30;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+}
+
+/* Universal galaxy background */
+.galaxy-background {
+  background-image: radial-gradient(circle at center, rgba(20, 0, 40, 0.8) 0%, rgba(0, 0, 20, 1) 100%);
+  background-attachment: fixed;
+}
+
+/* Glass effect for content sections */
+.glass-effect {
+  @apply bg-opacity-10 backdrop-blur-md bg-gray-900 border border-purple-500 border-opacity-20 shadow-lg;
+}
+
+/* Timeline styles */
+@media (max-width: 767px) {
+  .left-timeline {
+    left: 0;
+  }
+  .right-timeline {
+    left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .left-timeline {
+    left: 0;
+  }
+  .right-timeline {
+    left: 50%;
+  }
+}
+
+.left-timeline {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+.right-timeline {
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+/* Existing styles */
+.timeline-img {
+  @apply absolute w-6 h-6 rounded-full shadow-md left-14 md:mx-auto md:left-0 md:right-0;
+}
+
+.timeline-container {
+  @apply relative pt-2 px-0 md:w-1/2 md:ml-auto md:pl-16;
+}
+
+.timeline-pointer {
+  @apply absolute inset-0 left-14 h-4 w-4 transform rotate-45 bg-gray-800 top-8 md:top-10 md:left-14;
+}
+
+@screen md {
+  .timeline-container:nth-child(even) {
+    @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
+  }
+
+  .timeline-container:nth-child(even) .timeline-pointer {
+    @apply left-auto right-14;
+  }
+}
+
